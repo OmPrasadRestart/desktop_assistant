@@ -5,7 +5,7 @@ import os
 from gtts import gTTS
 
 
-GOOGLE_API_KEY = 'AIzaSyD_MCz57pkW3-BPmHAuSdncjFfi_kq_AfA"
+GOOGLE_API_KEY = 'AIzaSyD_MCz57pkW3-BPmHAuSdncjFfi_kq_AfA'
 os.environ['GOOGLE_API_KEY'] = GOOGLE_API_KEY
 
 
@@ -42,6 +42,8 @@ def llm_model_object(user_text):
     genai.configure(api_key=GOOGLE_API_KEY)
     
     model = genai.GenerativeModel('gemini-pro')
+    print(model) 
+    
     
     response=model.generate_content(user_text)
     
