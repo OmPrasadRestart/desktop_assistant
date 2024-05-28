@@ -48,7 +48,29 @@ def takeCommand():
         return query
     
 
-text= takeCommand()
-speak(text)
+if __name__ == "__main__":
+    query = takeCommand().lower()
+    print(query)
+    
+    # Logic for executing tasks based on query
+    if 'wikipedia' in query:
+        speak('Searching Wikipedia...')
+        query = query.replace("wikipedia", "")
+        results = wikipedia.summary(query, sentences=2)
+        speak("According to Wikipedia")
+        print(results)
+        speak(results)
+    elif 'open youtube' in query:
+        webbrowser.open("youtube.com")
+    elif 'open google' in query:
+        webbrowser.open("google.com")
+    elif 'open stackoverflow' in query:
+        webbrowser.open("stackoverflow.com")
+    elif 'play music' in query:
+        music_dir = 'F:\\iNeuron\\FSDS with GenAI\\desktop_assistant\\music'
+        songs = os.listdir(music_dir)
+        print(songs)
+        os.startfile(os.path.join(music_dir, songs[0]))
+    elif 'the time' in query:
     
             
